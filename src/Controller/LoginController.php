@@ -1,10 +1,10 @@
-<?
+<?php
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class LoginController extends AbstractController {
@@ -14,7 +14,7 @@ class LoginController extends AbstractController {
         $this->appKernel = $appKernel;
     }
 
-    #[Route('/nurse/login', name: 'nurse_login', methods: ['POST'])]
+    #[Route('/nurse/login', name: 'nurse', methods: ['POST'])]
     public function login(Request $request): JsonResponse {
         // Decodificamos el JSON que llega en el body de la petición (ej desde Postman)
         $data = json_decode($request->getContent(), true);
